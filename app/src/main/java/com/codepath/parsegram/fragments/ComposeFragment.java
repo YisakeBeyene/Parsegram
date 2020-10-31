@@ -71,7 +71,10 @@ public class ComposeFragment extends Fragment {
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnCaptureImage.setVisibility(View.INVISIBLE);
                 launchCamera();
+                etDescription.setVisibility(View.VISIBLE);
+                btnSubmit.setVisibility(View.VISIBLE);
             }
         });
 
@@ -90,6 +93,10 @@ public class ComposeFragment extends Fragment {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(description, currentUser, photoFile);
+                btnCaptureImage.setVisibility(View.VISIBLE);
+                etDescription.setVisibility(View.INVISIBLE);
+                btnSubmit.setVisibility(View.INVISIBLE);
+
             }
         });
     }

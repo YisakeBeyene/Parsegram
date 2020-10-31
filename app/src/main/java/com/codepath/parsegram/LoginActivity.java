@@ -29,18 +29,18 @@ public class LoginActivity extends AppCompatActivity {
 
         if (ParseUser.getCurrentUser() != null){
             goMainActivity();
-//            ParseUser.logOutInBackground(new LogOutCallback() {
-//                @Override
-//                public void done(ParseException e) {
-//                    if(e != null)
-//                    {
-//                        Log.e(TAG, "Issue with login", e);
-//                        return;
-//                    }
-////                    goLoginActivity();
-//                    Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT);
-//                }
-//            });
+            ParseUser.logOutInBackground(new LogOutCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if(e != null)
+                    {
+                        Log.e(TAG, "Issue with login", e);
+                        return;
+                    }
+//                    goLoginActivity();
+                    Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT);
+                }
+            });
         }
 
         etUsername = findViewById(R.id.etUsername);
